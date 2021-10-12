@@ -20,7 +20,7 @@ class cFeatureSet {
         $counter = 0
         $status = Get-WindowsFeature -Name $features
         foreach ($s in $status) {
-            switch ($status.InstallState) {
+            switch ($s.InstallState) {
                 "Installed" { $this.Ensure = [Ensure]::Present }
                 default { $counter++ }
             }
